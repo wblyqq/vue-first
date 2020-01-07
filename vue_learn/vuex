@@ -1,0 +1,25 @@
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+new Vue({
+   ...,
+   store,//配置store选项，会自动将store注入到所有子组件中，在子组件中通过
+   this.$store 访问该store对象
+})
+
+Vue component 是我们的组件，组件会触发(dispatch)一些事件或动作(Actions)
+我们在组件中发出的动作，肯定是想获取或者改变数据的，但是在 vuex 中，数据是集中管理的
+，我们不能直接去更改数据，所以会把这个动作提交（Commit）到 Mutations 中
+然后 Mutations 就去改变（Mutate）State 中的数据；
+当 State 中的数据被改变之后，就会重新渲染（Render）到 Vue Components (组件)中去，
+Vue Components (组件)展示更新后的数据，完成一个流程。
+
+Vuex 的 核心 是 Store（仓库），相当于是一个容器，一个 Store 实例中包含以下属性的方法：
+
+state 定义属性（状态 、数据）
+getters 用来获取属性
+actions 定义方法（动作）
+commit 提交变化，修改数据的唯一方式就是显示的提交 mutations
+mutations 定义变化，处理状态（数据）的改变
+mapGetters 用来获取属性（数据）
+mapActions 用来获取方法（动作）
